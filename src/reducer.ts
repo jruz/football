@@ -29,7 +29,7 @@ export interface StateT {
   page: PageT | null;
 }
 
-interface ActionT {
+export interface ActionT {
   type: 'GET_TEAMS_FULFILLED' | 'GET_CONFERENCES_FULFILLED' | 'SET_PAGE';
   payload: { data: TeamT[] | ConferenceT[] | PageT };
 }
@@ -41,6 +41,9 @@ const Reducer = (state: StateT = initialState, action: ActionT): StateT => {
     }
     case 'GET_CONFERENCES_FULFILLED': {
       return { ...state, conferences: action.payload.data };
+    }
+    case 'SET_PAGE': {
+      return { ...state, page: action.payload };
     }
     default: {
       return state;
