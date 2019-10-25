@@ -3,3 +3,9 @@ body {
   height: 100%;
   background-color: #dfdfdf;
 }
+
+td {
+  @media screen and (max-width: 768px) {
+    white-space: nowrap;
+  }
+}

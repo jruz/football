@@ -2,31 +2,9 @@ import React, { useEffect, useState, FC, FormEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getConferences } from '../actions';
-import { StateT, ConferenceT } from '../reducer';
+import { StateT } from '../reducer';
+import Table from './table';
 import Footer from '../shared/footer';
-
-const Table: FC<{ conferences: ConferenceT[] }> = ({ conferences }) => (
-  <table className="table is-striped is-fullwidth">
-    <thead>
-      <tr>
-        <th>Abbr.</th>
-        <th>Name</th>
-        <th>Short Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      {conferences.map(({ abbreviation, name, short_name, id }) => {
-        return (
-          <tr key={id}>
-            <td>{abbreviation}</td>
-            <td>{name}</td>
-            <td>{short_name}</td>
-          </tr>
-        );
-      })}
-    </tbody>
-  </table>
-);
 
 const Conferences: FC = () => {
   const conferences = useSelector(({ conferences }: StateT) => conferences);
