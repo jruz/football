@@ -2,7 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
-import reducer, { ActionT, StateT } from './reducer';
+import reducer, { StateT } from './reducer';
+import { ActionT } from './actions';
 import url from './middleware';
 
 declare global {

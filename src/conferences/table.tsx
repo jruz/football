@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Table from '../shared/table';
 
-import { ConferenceT } from '../reducer';
+import { ConferenceT } from '../actions';
 
 const ConfTable: FC<{ conferences: ConferenceT[] }> = ({ conferences }) => (
   <Table>

@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, HTMLSelectElement } from 'react';
+import React, { FC, FormEvent } from 'react';
 import style from './footer.scss';
 
 const Footer: FC<{
@@ -9,7 +9,7 @@ const Footer: FC<{
   totalTeams: number;
 }> = ({ currentPage, setCurrentPage, setPageSize, totalPages, totalTeams }) => {
   const onPageSize = (e: FormEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
+    const { value } = e.target as HTMLSelectElement;
     setPageSize(value);
     setCurrentPage(1);
   };

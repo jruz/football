@@ -1,10 +1,12 @@
-import React, { FC, ChangeEvent, HTMLSelectElement } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 import style from './header.scss';
 
-const Header: FC<{
-  onChange: ChangeEvent<HTMLSelectElement>;
+type PropsT = {
+  onChange(e: ChangeEvent<HTMLSelectElement>): void;
   conferences: string[];
-}> = ({ onChange, conferences }) => (
+};
+
+const Header: FC<PropsT> = ({ onChange, conferences }) => (
   <header className={style.header}>
     <h1 className="title is-1">Teams</h1>
     <div className="select">

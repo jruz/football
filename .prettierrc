@@ -2,13 +2,5 @@
   "arrowParens": "always",
   "printWidth": 80,
   "singleQuote": true,
-  "trailingComma": "all",
-  "overrides": [
-    {
-      "files": "*.ts",
-      "options": {
-        "parser": "babel"
-      }
-    }
-  ]
+  "trailingComma": "all"
 }
