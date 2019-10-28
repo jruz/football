@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import style from './app.scss';
 import { setPage, PageT } from './actions';
+import Loading from './shared/loading';
 
 const Teams = lazy(() => import('./teams/index'));
 const Conferences = lazy(() => import('./conferences/index'));
@@ -23,8 +24,6 @@ const getPage = (page: string) => {
 
 const capitalize = (name: string) =>
   name.substring(0, 1).toUpperCase() + name.substring(1);
-
-const Fallback = () => <p>Loading...</p>;
 
 const App: FC = () => {
   const page = useSelector(({ page }: StateT) => page);
@@ -58,7 +57,7 @@ const App: FC = () => {
         </div>
       </aside>
       <main className={`column ${style.main}`}>
-        <Suspense fallback={<Fallback />}>{getPage(page)}</Suspense>
+        <Suspense fallback={<Loading />}>{getPage(page)}</Suspense>
       </main>
     </section>
   );
