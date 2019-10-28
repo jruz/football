@@ -11,9 +11,9 @@
     "lint": "yarn run lint:types && yarn run lint:css && yarn run lint:js && yarn run lint:prettier",
     "lint:css": "stylelint \"src/**/*.scss\"",
     "lint:js": "eslint . --ext \"ts,tsx\"",
-    "lint:prettier": "prettier \"src/**/*.{ts,tsx,js,json,yaml,md,scss,html,css,yml}\" -l",
+    "lint:prettier": "prettier \"**/*.{ts,tsx,js,json,yaml,yml,md,scss,css,html}\" -l",
     "lint:types": "tsc --noEmit",
-    "pretty": "prettier \"src/**/*.{ts,tsx,js,json,yaml,md,scss,html,css,yml}\" --write",
+    "pretty": "prettier \"**/*.{ts,tsx,js,json,yaml,yml,md,scss,css,html}\" --write",
     "build": "webpack -p --config webpack.prod.js",
     "test": "jest src/js",
     "test:watch": "jest src --watch"
