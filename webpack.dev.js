@@ -12,6 +12,10 @@ const Config = {
     historyApiFallback: true,
     host: '0.0.0.0',
     hot: true,
+    stats: {
+      modules: false,
+      children: false,
+    },
   },
   module: {
     ...Shared.module,
@@ -20,18 +24,19 @@ const Config = {
       {
         test: /\.scss$/,
         use: [
-          { loader: 'style-loader' },
+          'style-loader',
+          '@teamsupercell/typings-for-css-modules-loader',
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-              modules: true,
               importLoaders: 1,
               localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: true,
+              sourceMap: true,
             },
           },
-          { loader: 'postcss-loader' },
-          { loader: 'sass-loader' },
+          'postcss-loader',
+          'sass-loader',
         ],
       },
     ],

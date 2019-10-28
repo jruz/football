@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import 'bulma';
+
 import Store from './store';
 import App from './app';
 import { setPage } from './actions';
-import 'bulma';
 import './index.scss';
 
 const onLoaded = (): void => {

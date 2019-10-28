@@ -1,8 +1,8 @@
 import React, { useEffect, useState, FC, FormEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getTeams } from '../actions';
-import { StateT, TeamT } from '../reducer';
+import { getTeams, TeamT } from '../actions';
+import { StateT } from '../reducer';
 import Table from './table';
 import Header from './header';
 import Footer from '../shared/footer';
@@ -19,9 +19,9 @@ const Teams: FC = () => {
   const teams = useSelector(({ teams }: StateT) => teams);
   const conferences = teams.reduce(getNames, []);
   const dispatch = useDispatch();
-  const [list, setList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [list, setList] = useState<TeamT[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   useEffect(() => {
     dispatch(getTeams());
@@ -30,8 +30,8 @@ const Teams: FC = () => {
     setList(teams);
   }, [teams]);
 
-  const onConference = (e: FormEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
+  const onChange = (e: FormEvent<HTMLSelectElement>): void => {
+    const { value } = e.target as HTMLSelectElement;
     if (value === 'Conference') return setList(teams);
     const fromConference = teams.filter(
       ({ conference }) => conference === value,
@@ -49,7 +49,7 @@ const Teams: FC = () => {
 
   return (
     <section className="container">
-      <Header onChange={onConference} conferences={conferences} />
+      <Header onChange={onChange} conferences={conferences} />
       <Table teams={page} />
       <Footer
         currentPage={currentPage}

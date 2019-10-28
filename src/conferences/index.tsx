@@ -1,7 +1,7 @@
-import React, { useEffect, useState, FC, FormEvent } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getConferences } from '../actions';
+import { getConferences, ConferenceT } from '../actions';
 import { StateT } from '../reducer';
 import Table from './table';
 import Footer from '../shared/footer';
@@ -10,9 +10,9 @@ import Loading from '../shared/loading';
 const Conferences: FC = () => {
   const conferences = useSelector(({ conferences }: StateT) => conferences);
   const dispatch = useDispatch();
-  const [list, setList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [list, setList] = useState<ConferenceT[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   useEffect(() => {
     dispatch(getConferences());

@@ -2,15 +2,16 @@ import React, { FC, Suspense, lazy, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './app.scss';
-import { setPage, PageT } from './actions';
+import { setPage } from './actions';
 import Loading from './shared/loading';
+import { StateT } from './reducer';
 
 const Teams = lazy(() => import('./teams/index'));
 const Conferences = lazy(() => import('./conferences/index'));
 
 const pages = ['teams', 'conferences'];
 
-const getPage = (page: string) => {
+const getPage = (page: string | null) => {
   switch (page) {
     case 'teams': {
       return <Teams />;
@@ -19,6 +20,7 @@ const getPage = (page: string) => {
       return <Conferences />;
     }
     default:
+      return 'teams';
   }
 };
 
@@ -33,7 +35,7 @@ const App: FC = () => {
     dispatch(setPage('teams'));
   }, []);
 
-  const onClick = (name: PageT) => {
+  const onClick = (name: string) => {
     dispatch(setPage(name));
   };
 

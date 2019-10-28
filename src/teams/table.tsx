@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TeamT } from '../reducer';
+import { TeamT } from '../actions';
 import Table from '../shared/table';
 
 const TeamsTable: FC<{ teams: TeamT[] }> = ({ teams }) => (
