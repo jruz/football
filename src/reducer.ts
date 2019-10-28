@@ -37,13 +37,17 @@ export interface ActionT {
 const Reducer = (state: StateT = initialState, action: ActionT): StateT => {
   switch (action.type) {
     case 'GET_TEAMS_FULFILLED': {
-      return { ...state, teams: action.payload.data };
+      return { ...state, teams: action.payload.data, error: null };
     }
     case 'GET_CONFERENCES_FULFILLED': {
       return { ...state, conferences: action.payload.data };
     }
     case 'SET_PAGE': {
       return { ...state, page: action.payload };
+    }
+    case 'GET_CONFERENCES_REJECTED':
+    case 'GET_TEAMS_REJECTED': {
+      return { ...state, error: action.payload };
     }
     default: {
       return state;

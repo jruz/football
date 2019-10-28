@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import 'bulma';
+
 import Store from './store';
 import App from './app';
 import { setPage } from './actions';
-import 'bulma';
+import Error from './shared/error';
 import './index.scss';
 
 const onLoaded = (): void => {
@@ -17,9 +19,11 @@ const onLoaded = (): void => {
   };
 
   render(
-    <Provider store={Store}>
-      <App />
-    </Provider>,
+    <Error>
+      <Provider store={Store}>
+        <App />
+      </Provider>
+    </Error>,
     container,
   );
 };
