@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import style from './app.scss';
 import { setPage, PageT } from './actions';
+import Error from './shared/error';
 
 const Teams = lazy(() => import('./teams/index'));
 const Conferences = lazy(() => import('./conferences/index'));
@@ -58,7 +59,9 @@ const App: FC = () => {
         </div>
       </aside>
       <main className={`column ${style.main}`}>
-        <Suspense fallback={<Fallback />}>{getPage(page)}</Suspense>
+        <Error>
+          <Suspense fallback={<Fallback />}>{getPage(page)}</Suspense>
+        </Error>
       </main>
     </section>
   );
