@@ -12,6 +12,10 @@ const Config = {
     historyApiFallback: true,
     host: '0.0.0.0',
     hot: true,
+    stats: {
+      modules: false,
+      children: false,
+    },
   },
   module: {
     ...Shared.module,
