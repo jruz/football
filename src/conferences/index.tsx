@@ -5,6 +5,7 @@ import { getConferences } from '../actions';
 import { StateT } from '../reducer';
 import Table from './table';
 import Footer from '../shared/footer';
+import Loading from '../shared/loading';
 
 const Conferences: FC = () => {
   const conferences = useSelector(({ conferences }: StateT) => conferences);
@@ -20,7 +21,7 @@ const Conferences: FC = () => {
     setList(conferences);
   }, [conferences]);
 
-  if (!list.length) return <p>loading...</p>;
+  if (!list.length) return <Loading />;
 
   const totalPages = Math.ceil(list.length / pageSize);
   const end = currentPage * pageSize;

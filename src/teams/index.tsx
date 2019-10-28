@@ -6,6 +6,7 @@ import { StateT, TeamT } from '../reducer';
 import Table from './table';
 import Header from './header';
 import Footer from '../shared/footer';
+import Loading from '../shared/loading';
 
 const getNames = (list: string[], team: TeamT): string[] => {
   const { conference } = team;
@@ -39,7 +40,7 @@ const Teams: FC = () => {
     setCurrentPage(1);
   };
 
-  if (!list.length) return <p>loading...</p>;
+  if (!list.length) return <Loading />;
 
   const totalPages = Math.ceil(list.length / pageSize);
   const end = currentPage * pageSize;

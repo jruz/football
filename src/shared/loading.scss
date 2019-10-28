@@ -1,0 +1,44 @@
+// Based on https://github.com/nzbin/three-dots
+
+$dotColor: #000000;
+
+%dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $dotColor;
+  animation: dotFlashing 1s infinite linear alternate;
+  margin: 0 auto;
+}
+
+.loading {
+  @extend %dot;
+  position: relative;
+  animation-delay: 0.5s;
+
+  &::before,
+  &::after {
+    @extend %dot;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+
+  &::before {
+    left: -15px;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    left: 15px;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes dotFlashing {
+  50%,
+  100% {
+    background-color: lighten($dotColor, 50%);
+  }
+}
