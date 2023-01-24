@@ -31,7 +31,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.6",
-    "@teamsupercell/typings-for-css-modules-loader": "^2.0.0",
+    "@teamsupercell/typings-for-css-modules-loader": "^2.5.2",
     "autoprefixer": "^9.4.6",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.5",
