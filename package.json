@@ -33,7 +33,7 @@
     "@fortawesome/react-fontawesome": "^0.1.6",
     "@teamsupercell/typings-for-css-modules-loader": "^2.0.0",
     "autoprefixer": "^9.4.6",
-    "axios": "^0.19.0",
+    "axios": "^1.6.0",
     "babel-loader": "^8.0.5",
     "bulma": "^0.8.0",
     "compression-webpack-plugin": "^2.0.0",
